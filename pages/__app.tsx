@@ -3,7 +3,10 @@ import App from 'next/app';
 import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import withRedux from 'next-redux-wrapper';
+
 import theme from '../src/theme';
+import { initStore } from '../store';
 
 class MyApp extends App {
   componentDidMount() {
@@ -32,4 +35,4 @@ class MyApp extends App {
   }
 }
 
-export default MyApp;
+export default withRedux(initStore)(MyApp);
